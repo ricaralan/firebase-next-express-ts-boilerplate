@@ -14,7 +14,7 @@
     "lint": "next lint",
     "serve": "npm run build && firebase emulators:start --only functions:nextcode,hosting",
     "shell": "npm run build && firebase functions:shell",
-    "deploy": "firebase deploy --only functions:nextapp,hosting",
+    "deploy": "firebase deploy --only functions:nextcode:nextapp,hosting",
     "logs": "firebase functions:log"
   },
   "dependencies": {
