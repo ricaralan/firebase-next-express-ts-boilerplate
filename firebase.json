@@ -1,0 +1,60 @@
+{
+  "functions": [
+    {
+        "source": "functions",
+        "codebase": "default"
+    }, {
+        "source": "nextapp",
+        "codebase": "nextcode",
+        "predeploy": [
+            "npm --prefix \"$PROJECT_DIR\" install",
+            "npm --prefix \"$PROJECT_DIR\" run build"
+        ],
+        "runtime": "nodejs18",
+        "ignore": [
+            "**/tests/**",
+            "**/__tests__/**",
+            "**/node_modules/**",
+            "**/test/**",
+            "**/*log",
+            "jest.config.js",
+            "**/public/**",
+            "**/.next/cache/**",
+            "**/log"
+        ]
+    }
+  ],
+  "emulators": {
+    "firestore": {
+        "host": "127.0.0.1",
+        "port": 8080
+    },
+    "database": {
+        "host": "127.0.0.1",
+        "port": 9000
+    },
+    "ui": {
+        "enabled": true
+    },
+    "hosting": {
+        "host": "localhost",
+        "port": "5023"
+    }
+  },
+  "hosting": {
+    "public": "public",
+    "cleanUrls": true,
+    "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**",
+        "**/.next/cache/**"
+    ],
+    "rewrites": [
+        {
+            "source": "**",
+            "function": "nextapp"
+        }
+    ]
+  }
+}
